@@ -1,4 +1,5 @@
 import math
+import time
 min_x = math.inf
 max_x = 0
 max_y = 0
@@ -143,6 +144,7 @@ class Dungeon():
         
 
 def main():
+    start = time.time()
     data = get_data()
     dungeon = Dungeon(floor_y, max_x, 500 - min_x)
     for wall_coordinates in data:
@@ -153,8 +155,10 @@ def main():
         if not success:
             break
         sand_count += 1
-    dungeon.print_map()
+    # dungeon.print_map()
     print(f'answer: {sand_count}')
+    end = time.time()
+    print(f'elapsed time: {end - start}')
 
 if __name__ == "__main__":
     main()
